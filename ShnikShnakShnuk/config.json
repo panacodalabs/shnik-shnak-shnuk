@@ -32,5 +32,9 @@
         "timeStampCreated": "created_at",
         "timeStampUpdated": "updated_at",
         "m_id": "m_id"
-    }
+    },
+    "supportedLanguages": [
+        "en_us",
+        "de_de"
+    ]
 }

@@ -8,31 +8,54 @@
 
 ShnikShnakShnuk.StartScreen = M.PageView.design({
 
-    /* Use the 'events' property to bind events like 'pageshow' */
-    events: {
-        pageshow: {
-            target: ShnikShnakShnuk.MyController,
-            action: 'init'
-        }
-    },
+    /*
+     events: {
+     pageshow: {
+     target: ShnikShnakShnuk.MyController,
+     action: 'init'
+     }
+     },
+     */
 
-    childViews: 'header content footer',
-
-    header: M.ToolbarView.design({
-        value: 'HEADER',
-        anchorLocation: M.TOP
-    }),
+    childViews: 'content',
 
     content: M.ScrollView.design({
-        childViews: 'label',
-        label: M.LabelView.design({
-            value: 'StartScreen'
-        })
-    }),
+        childViews: 'rock paper scissors',
 
-    footer: M.ToolbarView.design({
-        value: 'FOOTER',
-        anchorLocation: M.BOTTOM
+        cssClass: 'startScreen',
+
+        rock: M.LabelView.design({
+            value: M.I18N.l('rock'),
+            events: {
+                click: {
+//                    target: ,
+//                    action: ''
+                }
+            },
+            cssClass: 'pseudoButton'
+
+        }),
+        paper: M.LabelView.design({
+            value: M.I18N.l('paper'),
+            events: {
+                click: {
+//                    target: ,
+//                    action: ''
+                }
+            },
+            cssClass: 'pseudoButton'
+        }),
+
+        scissors: M.LabelView.design({
+            value: M.I18N.l('scissors'),
+            events: {
+                click: {
+//                    target: ,
+//                    action: ''
+                }
+            },
+            cssClass: 'pseudoButton'
+        })
     })
 
 });

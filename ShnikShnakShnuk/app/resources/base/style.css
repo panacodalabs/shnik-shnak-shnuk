@@ -2,3 +2,48 @@
 .myCssClass {
     color: #FF0000;
 }
+
+.startScreen{
+    background: url(images/background.jpg) no-repeat;
+}
+
+.pseudoButton {
+    -webkit-background-clip: border;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.796875) 0px 1px 0px;
+    background-color: rgb(148, 4, 40);
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(100, 3, 29)), color-stop(1, rgb(148, 4, 40)));
+    background-image: -moz-linear-gradient(center bottom, rgb(100, 3, 29) 0%, rgb(148, 4, 40) 100%);
+    -moz-box-shadow: 0 0 1px #520012;
+    -webkit-box-shadow: 0 0 1px #520012;
+    box-shadow: 0 0 1px #520012;
+    border: 1px solid #900;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-left-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-bottom-right-radius: 5px 5px;
+    border-top-left-radius: 5px 5px;
+    border-top-left-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    border-top-right-radius: 5px 5px;
+    color: white;
+    cursor: pointer;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    margin: 10px 0px 10px 0px;
+    padding: 0px;
+    /*position: relative;*/
+    text-align: center;
+    text-decoration: none;
+    text-shadow: #900 0px -1px 1px;
+    width: 100%;
+    /*border-color: rgba(255, 255, 255, 0.296875);*/
+    /*border-top: none rgba(255, 255, 255, 0.296875);*/
+    border-top: 1px solid #c17588;
+    border-bottom: 1px solid #520012;
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+    padding: 8px 0px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
