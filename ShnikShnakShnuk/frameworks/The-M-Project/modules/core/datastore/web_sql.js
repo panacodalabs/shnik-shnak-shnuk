@@ -559,7 +559,6 @@ M.DataProviderWebSql = M.DataProvider.extend(
                 this.dbHandler.transaction(function(t) {
                     for(var j = 0; j < sqlInsertSet.length; j++) {
                         if(sqlInsertSet[j] !== '') {
-                            console.log(sqlInsertSet[j]);
                             t.executeSql(sqlInsertSet[j]);
                         }
                     }

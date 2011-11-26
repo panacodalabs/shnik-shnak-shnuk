@@ -172,7 +172,6 @@ M.DataProviderRemoteStorage = M.DataProvider.extend(
      * @param obj
      */
     configure: function(obj) {
-        console.log('configure() called.');
         // maybe some value checking
         return this.extend({
             config:obj

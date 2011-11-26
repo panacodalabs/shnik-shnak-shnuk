@@ -108,7 +108,7 @@ M.RecordManager = M.Object.extend(
     dumpRecords: function() {
         _.each(this.records, function(rec){
             //console.log(rec.m_id);
-            console.log(rec);
+//            console.log(rec);
         });
     }
     

@@ -175,7 +175,7 @@ M.SocketRequest = M.Object.extend(
             else {
                 socket = this.socketConnection[index];
             }
-            console.log(index);
+
             return socket;
         },
 
@@ -197,7 +197,7 @@ M.SocketRequest = M.Object.extend(
 
             // if connection, failed:
             socket.on('error', function(e) {
-                console.log('on-error');
+
                 if (typeof(obj.onError) !== 'undefined' && typeof(obj.onError.target) !== 'undefined') {
                     that.bindToCaller(obj.onError.target, obj.onError.target[obj.onError.action], [])();
                 }
@@ -207,7 +207,7 @@ M.SocketRequest = M.Object.extend(
             });
 
             socket.socket.on('error', function(e) {
-                console.log('soccket-on-error');
+
                 if (typeof(obj.onError) !== 'undefined' && typeof(obj.onError.target) !== 'undefined') {
                     that.bindToCaller(obj.onError.target, obj.onError.target[obj.onError.action], [])();
                 }
@@ -217,7 +217,7 @@ M.SocketRequest = M.Object.extend(
             });
 
             socket.on('connect_failed', function(e) {
-                console.log('on-connect_failed');
+
                 if (typeof(obj.onError) !== 'undefined' && typeof(obj.onError.target) !== 'undefined') {
                     that.bindToCaller(obj.onError.target, obj.onError.target[obj.onError.action], [])();
                 }
@@ -227,7 +227,7 @@ M.SocketRequest = M.Object.extend(
             });
 
             socket.socket.on('connect_failed', function(e) {
-                console.log('socket-on-connect_failed');
+
                 if (typeof(obj.onError) !== 'undefined' && typeof(obj.onError.target) !== 'undefined') {
                     that.bindToCaller(obj.onError.target, obj.onError.target[obj.onError.action], [])();
                 }
