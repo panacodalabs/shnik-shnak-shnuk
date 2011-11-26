@@ -47,7 +47,7 @@ ShnikShnakShnuk.StartScreen = M.PageView.design({
         }),
 
         scissors: M.LabelView.design({
-            value: M.I18N.l('scissors'),
+            value: M.I18N.l('scissor'),
             events: {
                 click: {
 //                    target: ,
