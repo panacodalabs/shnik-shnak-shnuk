@@ -1,13 +1,18 @@
-.ui-page{
+.ui-page {
     height: 100%;
 }
 
-.ui-content{
+.ui-content {
     height: 100%;
     padding: 0;
 }
 
-.startScreen{
+.ui-content * {
+    font-family: 'Cabin Sketch', cursive !important;
+    font-size: 30px;
+}
+
+.startScreen {
     background: url(images/background.jpg) no-repeat;
     text-align: center;
 }
@@ -21,6 +26,7 @@
     xbackground-color: rgb(148, 4, 40);
     xbackground-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(255, 255, 255)), color-stop(1, rgb(148, 4, 40)));
     xbackground-image: -moz-linear-gradient(center bottom, rgb(100, 3, 29) 0%, rgb(148, 4, 40) 100%);
+    background: rgba(0,0,0,0.5);
     -moz-box-shadow: 0 0 1px #666;
     -webkit-box-shadow: 0 0 1px #666;
     box-shadow: 0 0 1px #666;
@@ -47,7 +53,84 @@
     border-bottom: 1px solid #666;
     display: inline-block;
     overflow: hidden;
-    padding: 48px 0 10px 0px;
+    padding: 88px 0 10px 0px;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.ui-page.ui-mobile-touch-overflow .five,
+.five {
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+    transform: rotate(60deg);
+    -webkit-transform: rotate(60deg);
+    -moz-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    -o-transform: rotate(60deg);
+    transform: rotate(60deg);
+    display: inline-block;
+    margin: 0 0 0 -22px;
+    font-size: 42px;
+    padding: 1px 0 12px 0;
+}
+
+.ws {
+    display: inline-block;
+    width: 16px;
+}
+
+.ui-page.ui-mobile-touch-overflow .backgroundVersus,
+.backgroundVersus{
+    font-size: 100px;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    -webkit-transform: rotate(25deg);
+    -moz-transform: rotate(25deg);
+    -ms-transform: rotate(25deg);
+    -o-transform: rotate(25deg);
+    transform: rotate(25deg);
+    -webkit-transform: rotate(25deg);
+    -moz-transform: rotate(25deg);
+    -ms-transform: rotate(25deg);
+    -o-transform: rotate(25deg);
+    transform: rotate(25deg);
+}
+
+.ui-page.ui-mobile-touch-overflow .backgroundMe,
+.backgroundMe{
+    font-size: 100px;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    color: rgba(0, 0, 0, 0.5);
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    -o-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    -o-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+
+}
+.versus{
+    font-size: 300px;
+    top: 0px;
+    left: 35%;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.backgroundElements{
+    z-index: 1;
+}
+
+.foregroundElements{
+    margin: -250px 0 0 0;
+    z-index: 2;
 }

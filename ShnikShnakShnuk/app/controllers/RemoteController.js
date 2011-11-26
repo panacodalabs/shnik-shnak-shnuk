@@ -8,19 +8,11 @@
 
 ShnikShnakShnuk.RemoteController = M.Controller.extend({
 
-    sessionId: -1,
-    console: '',
+    sessionId: '',
     userName: '',
 
-    init: function(isFirstLoad) {
-        if (isFirstLoad) {
-            this.registerCallbacks();
-            this.set('userName', 'Mika' + M.Date.now().getTimestamp());
-            this.send('whatsup');
-        }
-    },
-
     send: function(sub, message) {
+        console.log('send');
         var msg = message ? message : {};
         msg.sub = sub;
         msg.userName = this.userName;
@@ -32,9 +24,8 @@ ShnikShnakShnuk.RemoteController = M.Controller.extend({
     },
 
     registerCallbacks: function() {
-
         var that = this
-        console.log('register');
+        
         M.SocketRequest.receive({
             url: 'http://192.168.2.62:8880/shnikit',
             channel: 'shnikit',
@@ -61,47 +52,36 @@ ShnikShnakShnuk.RemoteController = M.Controller.extend({
     },
 
     joined: function(msg) {
-        var data = msg.data
+        var data = msg.data.session;
 
-        var players = [];
-        Object.keys(data.users).forEach(function(key) {
-            players.push(data.users[key].userName);
-        });
-
-        this.set('console', players[0] + ' vs. ' + players[1] );
+        var n1 = data.firstUser.name;
+        var n2 = data.secondUser.name;
+        ShnikShnakShnuk.GameController.set('background', n1 + ' ' + M.I18N.l('vs') + ' ' + n2);
     },
 
     result: function(msg) {
-        var data = msg.data
-        console.log(msg.data);
-        var txt = msg.data.winner;
-        if (msg.data.winner === this.userName) {
-            txt = 'you win';
-            var t = ShnikShnakShnuk.GameController.totalWins;
-            ShnikShnakShnuk.GameController.set('totalWins', t += 'l');
-        } else if (msg.data.winner !== 'tie') {
-            txt = 'you loose';
-            var t = ShnikShnakShnuk.GameController.totalLooses;
-            ShnikShnakShnuk.GameController.set('totalLooses', t += 'l');
-        }
-        this.set('console', txt);
+        ShnikShnakShnuk.GameController.update(msg);
     },
 
     receive: function(msg) {
-        console.log('receive', msg);
-        if (msg && msg.sub && msg.data) {
-            if (msg.sub === 'opened' && this.sessionId < 0) {
-                this.newSession(msg.data.sessionId);
-            }
 
-            console.log(msg.data.sessionId, this.sessionId);
-            if (msg.data.sessionId == this.sessionId) {
-                if (msg.sub === 'joined') {
-                    this.joined(msg);
+        if(msg && msg.data && msg.data.sessionId === this.sessionId){
+            
+            if(msg.sub === 'joined'){
+                this.joined(msg);
+                var page = M.ViewManager.getCurrentPage();
+                var view = M.ViewManager.getView(page, 'content').currentView;
+                if(view._name != 'second'){
+                    M.ViewManager.getView(page, 'content').toggleView();
                 }
-                if (msg.sub === 'result') {
-                    this.result(msg);
-                }
+            }
+            if(msg.sub === 'create'){
+                var page = M.ViewManager.getCurrentPage();
+
+                M.ViewManager.getView(page, 'content').toggleView();
+            }
+            if(msg.sub === 'result'){
+                this.result(msg.data);
             }
         }
     }
