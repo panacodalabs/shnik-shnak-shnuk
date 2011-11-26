@@ -37,5 +37,7 @@
     "supportedLanguages": [
         "en_us",
         "de_de"
-    ]
+    ],
+
+    "libraries":[ {"name": "Socket", "refs": ["*"]} ]
 }
